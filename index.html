@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 400px; /* Adjust this width as needed */
+    }
+
+    .grid-square {
+      width: calc(100% / 16);
+      padding-bottom: calc(100% / 16);
+      border: 1px solid #000;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="grid-container"></div>
+
+  <script src = "index.js">
+  </script>
+</body>
+</html>
