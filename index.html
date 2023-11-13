@@ -8,35 +8,63 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
       margin: 0;
+      font-size: 1.1rem;
+      padding: 10px;
+      background-color: rgb(223, 223, 223);
     }
 
     .container {
       display: flex;
       flex-wrap: wrap;
-      width: 400px; /* Adjust this width as needed */
-      border: 1px solid #FF5733;
+      width: 500px;
+      box-shadow: -3px 8px 14px -4px rgba(0,0,0,0.75);
+-webkit-box-shadow: -3px 8px 14px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: -3px 8px 14px -4px rgba(0,0,0,0.75);
+      
     }
 
     .grid-square {
-      width: calc(100% / 16);
-      padding-bottom: calc(100% / 16);
       box-sizing: border-box;
-      background-color: transparent;
+      background-color: white;
+      
       
     }
+
+  button {
+    padding: 10px;
+     font-weight: bold;
+      background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+      border: none;
+      color: black;
+      cursor: pointer;
+      border-radius: 5px;
+  }
+
 
   </style>
 </head>
 <body>
-  <div>
+<div style = "display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+  <div style = "height: 25vh; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+    <div>
     <label for="grid-size">Grid Size (max 100): </label>
     <input type="number" id="grid-size" min="1" max="100" value="16">
+    </div>
+
+    <div>
+    <label for="color-picker">Color: </label>
+    <input type="color" id="color-picker" value="#FF5733">
+    <div id="selected-color" style="width: 20px; height: 5px;"></div>
+    </div>
+
+    
+
     <button onclick="createGrid()">Create Grid</button>
   </div>
-  <div class="container" id="grid-container"></div>
 
+  <div class="container" id="grid-container"></div>
+</div>
   <script src = "index.js">
   </script>
 </body>
