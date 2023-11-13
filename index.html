@@ -8,8 +8,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 2.6vw;
-      background-color: rgb(223, 223, 223);
+      font-size: 1.4rem;
+      background: linear-gradient(to bottom right, #ffee8c, #ffb835);
+      font-family: 'Roboto Mono', monospace;
     }
 
     .container {
@@ -31,7 +32,7 @@
 
   #create-grid-btn {
     padding: 10px;
-    font-size: 1.8vw;
+    font-size: 1.3rem;
      font-weight: bold;
       background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
       border: none;
@@ -42,24 +43,30 @@
 
   #toggle-eraser-btn, #clear-grid-btn {
     padding: 10px;
-      font-size: 1.5vw;
+      font-size: 1.3rem;
       margin: 5px;
       cursor: pointer;
       border-radius: 5px;
-      background-color: white;
-      border: 1px solid white;
+      border: 2px solid white;
   }
 
   input {
-    font-size: 1.5vw;
+    font-size: 1.4rem;
   }
 
 
   </style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto+Mono&display=swap" rel="stylesheet">
+
 </head>
 <body>
+ 
 <div style = "display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
-  <div style = "height: 35vh; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+  <h2 style = "font-family: 'Dancing Script', cursive;">Grid Art</h2>
+  <div style = "height: 25vh; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center;">
     <div>
     <label for="grid-size">Grid Size (max 100): </label>
     <input type="number" id="grid-size" min="1" max="100" value="16">
@@ -71,12 +78,10 @@
     <div id="selected-color" style="width: 20px; height: 5px;"></div>
     </div>
 
-    
-
-    <button id = "create-grid-btn" onclick="createGrid()">Create Grid</button>
 
     <div style = "display: flex; justify-content: space-between;">
     <button id = "toggle-eraser-btn" onclick="toggleEraser()">Eraser</button>
+    <button id = "create-grid-btn" onclick="createGrid()">Create Grid</button>
     <button id = "clear-grid-btn" onclick="clearGrid()">Clear</button>
     </div>
   </div>
