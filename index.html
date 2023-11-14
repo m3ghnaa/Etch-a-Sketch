@@ -42,11 +42,23 @@
 
   #toggle-eraser-btn, #clear-grid-btn {
       font-size: 1rem;
-      margin: 5px;
+      margin: 10px;
       cursor: pointer;
       padding: 5px;
       background-color:white;
-      color: black;
+  }
+
+  #clear-grid-btn {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+
+  #toggle-eraser-btn {
+    background-color: #e7e7e7; 
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   }
 
   input {
@@ -55,11 +67,15 @@
 
   #randomize-button {
     cursor: pointer;
-    color: black;
+    color:black;
     font-weight: bold;
     height: 6vh;
+    font-size: 1rem;
+    border: none;
     background: linear-gradient(to right, rgb(173, 131, 173), rgb(178, 121, 219), rgb(97, 97, 179), rgb(108, 148, 108), rgb(211, 211, 90), rgb(187, 146, 71), red);
   }
+
+  
 
   
 
@@ -73,12 +89,12 @@
 <body>
  
 <div style = "display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
-  <p style = "font-family: 'Dancing Script', cursive;font-size: 4rem;">Grid Art</p>
+  <p style = "font-family: 'Dancing Script', cursive;font-size: 4rem; padding: 5px; margin: 0;">Grid Art</p>
   <div style = "height: 25vh; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center;">
-    <div>
-    <label for="grid-size">Grid Size (max 100): </label>
-    <input type="number" id="grid-size" min="1" max="100" value="16">
-    <button id = "create-grid-btn" onclick="createGrid()">Create Grid</button>
+    <div id = "controls">
+      <label for="grid-size-slider">Grid Size:</label>
+      <span id="gridSizeValue">16</span>
+      <input type="range" id="grid-size-slider" min="1" max="100" value="16">
     </div>
 
     <div style = "display: flex; justify-content: space-between; align-items: center;">

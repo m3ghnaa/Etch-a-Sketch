@@ -1,4 +1,6 @@
 const container = document.getElementById('grid-container');
+const gridSizeSlider = document.getElementById('grid-size-slider');
+gridSizeSlider.addEventListener('input', createGrid);
 const randomizeButton = document.getElementById('randomize-button');
 let isRandomizing = false;
 let isDrawing = false;
@@ -15,8 +17,11 @@ function getRandomRGB() {
 }
 
 function createGrid() {
-  const gridSizeInput = document.getElementById('grid-size');
-  const gridSize = parseInt(gridSizeInput.value, 10);
+  const gridSizeInput = document.getElementById('gridSizeSlider');
+  const gridSizeValue = document.getElementById('gridSizeValue');
+
+  const gridSize = parseInt(gridSizeSlider.value, 10);
+  gridSizeValue.textContent = gridSize; 
 
   if (isNaN(gridSize) || gridSize < 1 || gridSize > 100) {
     alert('Please enter a valid grid size between 1 and 100');
@@ -75,7 +80,7 @@ function createGrid() {
       
     }
   }
-  gridSizeInput.value = gridSize;
+
 }
 
 randomizeButton.addEventListener('click', () => {
