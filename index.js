@@ -1,3 +1,4 @@
+
 const container = document.getElementById('grid-container');
 const gridSizeSlider = document.getElementById('grid-size-slider');
 gridSizeSlider.addEventListener('input', createGrid);
@@ -5,7 +6,7 @@ const randomizeButton = document.getElementById('randomize-button');
 let isRandomizing = false;
 let isDrawing = false;
 let isErasing = false;
-let selectedColor = '#FF5733';
+let selectedColor = 'black';
 let lastTouchedSquare = null;
 
 
@@ -157,7 +158,7 @@ function toggleEraser() {
     selectedColor = 'white';
   } else {
     // If randomizing is not enabled, toggle between drawing color and eraser color
-    selectedColor = selectedColor === 'white' ? '#FF5733' : 'white';
+    selectedColor = selectedColor === 'white' ? 'black' : 'white';
   }
 
   // Update the selectedColorBox and color picker
@@ -172,5 +173,23 @@ function clearGrid() {
   });
 }
 
+
+const downloadButton = document.getElementById('download-button');
+
+downloadButton.addEventListener('click', () => {
+  const gridContainer = document.getElementById('grid-container');
+
+  html2canvas(gridContainer).then(canvas => {
+    const imageData = canvas.toDataURL('image/png');
+    const anchor = document.createElement('a');
+    anchor.setAttribute('href', imageData);
+    anchor.setAttribute('download', 'grid_art.png');
+    anchor.click();
+    anchor.remove();
+  });
+});
+
+
 createGrid();
+
 

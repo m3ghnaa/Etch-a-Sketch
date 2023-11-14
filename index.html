@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
@@ -52,6 +53,7 @@
     background-color: #04AA6D;
     border: none;
     color: white;
+    margin: 5px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   }
 
@@ -59,6 +61,7 @@
     background-color: #e7e7e7; 
     border: none;
     color: black;
+    margin: 5px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   }
 
@@ -81,6 +84,7 @@
   
 
   </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -101,7 +105,7 @@
     <div style = "display: flex; justify-content: space-between; align-items: center;">
     <div style = "padding: 10px;">
     <label for="color-picker">Color: </label>
-    <input type="color" id="color-picker" value="#FF5733">
+    <input type="color" id="color-picker" value="black">
     <div id="selected-color" style="width: 20px; height: 5px;"></div>
     </div>
     <button id="randomize-button">Randomize Colors</button>
@@ -111,10 +115,13 @@
     <div style = "display: flex; justify-content: space-between;">
     <button id = "toggle-eraser-btn" onclick="toggleEraser()">Eraser</button>
     <button id = "clear-grid-btn" onclick="clearGrid()">Clear</button>
+    <button id = "download-button" style = "cursor: pointer; background-color: #008CBA; border: none; color: white; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); font-size: 1rem; margin: 5px;"> Download Sketch </button>
     </div>
+    
   </div>
 
   <div class="container" id="grid-container"></div>
+  
 </div>
 
   <script src = "index.js"></script>
