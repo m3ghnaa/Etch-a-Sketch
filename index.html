@@ -35,28 +35,33 @@
     padding: 10px;
     font-size: 1.1rem;
      font-weight: bold;
-      background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
-      border: none;
+      background-color: black;
       color: white;
       cursor: pointer;
-      border-radius: 5px;
   }
 
   #toggle-eraser-btn, #clear-grid-btn {
-    padding: 10px;
       font-size: 1.1rem;
       margin: 5px;
       cursor: pointer;
-      border-radius: 5px;
-      background-color:lightblue;
-      border: 2px solid white;
-      color: black
+      padding: 5px;
+      background-color:white;
+      color: black;
   }
 
   input {
     font-size: 1.2rem;
   }
 
+  #randomize-button {
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    height: 6vh;
+    background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+  }
+
+  
 
   </style>
 
@@ -73,18 +78,21 @@
     <div>
     <label for="grid-size">Grid Size (max 100): </label>
     <input type="number" id="grid-size" min="1" max="100" value="16">
+    <button id = "create-grid-btn" onclick="createGrid()">Create Grid</button>
     </div>
 
-    <div>
+    <div style = "display: flex; justify-content: space-between; align-items: center;">
+    <div style = "padding: 10px;">
     <label for="color-picker">Color: </label>
     <input type="color" id="color-picker" value="#FF5733">
     <div id="selected-color" style="width: 20px; height: 5px;"></div>
+    </div>
+    <button id="randomize-button">Randomize Colors</button>
     </div>
 
 
     <div style = "display: flex; justify-content: space-between;">
     <button id = "toggle-eraser-btn" onclick="toggleEraser()">Eraser</button>
-    <button id = "create-grid-btn" onclick="createGrid()">Create Grid</button>
     <button id = "clear-grid-btn" onclick="clearGrid()">Clear</button>
     </div>
   </div>
