@@ -84,15 +84,22 @@ function createGrid() {
 
 }
 
+
+let hasDisplayedAlert = false;
+
 randomizeButton.addEventListener('click', () => {
   if (!isRandomizing) {
-    // Display alert message for the first click
-    alert("Note: If you want to use the eraser while randomizing, please stop the randomizing, use the eraser, then start the randomizing again.");
+    if (!hasDisplayedAlert) {
+      // Display alert message only once
+      alert("Note: If you want to use the eraser while randomizing, please stop the randomizing, use the eraser, then start the randomizing again.");
+      hasDisplayedAlert = true;
+    }
   }
 
   isRandomizing = !isRandomizing;
   randomizeButton.textContent = isRandomizing ? 'Stop Randomizing' : 'Randomize Colors';
 });
+
 
 const colorPicker = document.getElementById('color-picker');
 colorPicker.addEventListener('input', () => {
