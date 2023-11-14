@@ -191,5 +191,3 @@ downloadButton.addEventListener('click', () => {
 
 
 createGrid();
-
-
