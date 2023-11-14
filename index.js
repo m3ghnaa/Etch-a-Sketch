@@ -4,6 +4,8 @@ let isRandomizing = false;
 let isDrawing = false;
 let isErasing = false;
 let selectedColor = '#FF5733';
+let lastTouchedSquare = null;
+
 
 function getRandomRGB() {
   const randomR = Math.floor(Math.random() * 256);
@@ -28,6 +30,7 @@ function createGrid() {
   selectedColorBox.style.backgroundColor = selectedColor;
 
   container.innerHTML = '';
+  lastTouchedSquare = null;
 
   const squareSize = container.clientWidth / gridSize;
 
@@ -58,16 +61,18 @@ function createGrid() {
 
       // Touch events
       gridSquare.addEventListener('touchstart', (event) => {
-        handleTouchStart(event.touches[0], gridSquare);
+        handleTouchStart(event, gridSquare);
       });
-
+      
       gridSquare.addEventListener('touchmove', (event) => {
-        handleTouchMove(event.touches[0], gridSquare);
+        handleTouchMove(event);
       });
-
+      
       gridSquare.addEventListener('touchend', () => {
         isDrawing = false;
+        lastTouchedSquare = null;
       });
+      
     }
   }
   gridSizeInput.value = gridSize;
@@ -105,15 +110,24 @@ function handleMouseInteraction(event, gridSquare) {
   }
 }
 
-function handleTouchStart(touch, gridSquare) {
+function handleTouchStart(event, gridSquare) {
   event.preventDefault();
-  handleInteraction(touch, gridSquare);
+  isDrawing = true;
+  lastTouchedSquare = gridSquare;
+  handleInteraction(event, gridSquare);
 }
 
-function handleTouchMove(touch, gridSquare) {
+function handleTouchMove(event) {
   event.preventDefault();
-  handleInteraction(touch, gridSquare);
+
+  const touch = event.touches[0];
+  const target = document.elementFromPoint(touch.clientX, touch.clientY);
+
+  if (target && target.classList.contains('grid-square')) {
+    handleInteraction(event, target);
+  }
 }
+
 
 function handleInteraction(interactionEvent, gridSquare) {
   if (isErasing) {
